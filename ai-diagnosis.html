@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI活用診断（90分） — 御社のAI化の最初の一手を決める | 清水道浩</title>
+  <meta name="description" content="90分のオンラインセッションで、御社の業務の中から「今すぐ始められるAI化」を1つ特定します。5/14セミナー参加者限定¥25,000。通常¥35,000。">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; color: #1a1a1a; background: #fff; line-height: 1.7; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1a3a5c 100%);
+      color: white;
+      padding: 64px 20px 80px;
+      text-align: center;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: #10b981;
+      color: #fff;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 6px 20px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(24px, 4.5vw, 42px);
+      line-height: 1.35;
+      margin-bottom: 20px;
+      font-weight: 900;
+    }
+    .hero h1 .accent { color: #34d399; }
+    .hero .subtitle {
+      font-size: 17px;
+      color: #94a3b8;
+      margin-bottom: 40px;
+      line-height: 1.8;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Price Banner */
+    .price-box {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(16,185,129,0.6);
+      border-radius: 16px;
+      padding: 24px 48px;
+      margin-bottom: 36px;
+    }
+    .price-box .label { font-size: 12px; color: #94a3b8; letter-spacing: 1px; margin-bottom: 6px; }
+    .price-box .price-normal { font-size: 14px; color: #64748b; text-decoration: line-through; margin-bottom: 4px; }
+    .price-box .price-special { font-size: 32px; font-weight: 900; color: #34d399; }
+    .price-box .price-note { font-size: 12px; color: #64748b; margin-top: 6px; }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 18px 52px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 28px rgba(16,185,129,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(16,185,129,0.5); }
+    .hero .cta-note { font-size: 13px; color: #64748b; margin-top: 14px; }
+
+    /* Sections */
+    .section { padding: 72px 20px; }
+    .section.gray { background: #f8fafc; }
+    .inner { max-width: 720px; margin: 0 auto; }
+    .section-label { font-size: 12px; color: #10b981; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+    .section-title { font-size: clamp(22px, 3.5vw, 32px); font-weight: 900; line-height: 1.4; margin-bottom: 32px; }
+
+    /* Pain */
+    .pain-list { list-style: none; }
+    .pain-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 16px;
+    }
+    .pain-list li:last-child { border-bottom: none; }
+    .pain-icon { color: #ef4444; font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+
+    /* What box */
+    .what-box {
+      background: #0f172a;
+      color: white;
+      border-radius: 16px;
+      padding: 40px 36px;
+      margin-bottom: 24px;
+    }
+    .what-box .main { font-size: 20px; font-weight: 700; line-height: 1.6; margin-bottom: 16px; }
+    .what-box .main .accent { color: #34d399; }
+    .what-box .sub { font-size: 15px; color: #94a3b8; line-height: 1.8; }
+
+    /* Flow */
+    .flow-grid { display: grid; gap: 16px; }
+    .flow-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 22px 24px;
+    }
+    .flow-time {
+      background: #10b981;
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .flow-content h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .flow-content p { font-size: 14px; color: #475569; line-height: 1.6; }
+
+    /* Deliverables */
+    .deliverable-grid { display: grid; gap: 20px; }
+    @media (min-width: 600px) { .deliverable-grid { grid-template-columns: 1fr 1fr; } }
+    .deliverable-card {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 28px 24px;
+    }
+    .deliverable-card .number { font-size: 12px; color: #10b981; font-weight: bold; letter-spacing: 1px; margin-bottom: 8px; }
+    .deliverable-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+    .deliverable-card p { font-size: 14px; color: #475569; line-height: 1.7; }
+
+    /* Pricing */
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .pricing-table th {
+      background: #0f172a;
+      color: white;
+      padding: 14px 20px;
+      text-align: left;
+      font-size: 14px;
+    }
+    .pricing-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 15px;
+    }
+    .pricing-table tr:last-child td { border-bottom: none; }
+    .pricing-table tr.highlight { background: #ecfdf5; }
+    .pricing-table td.price { font-weight: 700; color: #059669; font-size: 18px; }
+    .pricing-note { font-size: 13px; color: #64748b; margin-top: 14px; line-height: 1.7; }
+
+    /* Fit */
+    .fit-list { list-style: none; }
+    .fit-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 15px;
+    }
+    .fit-list li:last-child { border-bottom: none; }
+    .fit-check { color: #10b981; font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+
+    /* FAQ */
+    .faq-list { display: grid; gap: 16px; }
+    .faq-item { border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; }
+    .faq-q { font-weight: 700; font-size: 15px; margin-bottom: 10px; }
+    .faq-q::before { content: 'Q. '; color: #10b981; }
+    .faq-a { font-size: 14px; color: #475569; line-height: 1.8; }
+
+    /* Profile */
+    .profile-card {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 32px;
+    }
+    @media (max-width: 500px) { .profile-card { flex-direction: column; } }
+    .profile-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0f172a, #1a3a5c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #34d399;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .profile-name { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .profile-title { font-size: 13px; color: #64748b; margin-bottom: 12px; }
+    .profile-bio { font-size: 14px; color: #475569; line-height: 1.8; }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1a3a5c 100%);
+      color: white;
+      padding: 72px 20px;
+      text-align: center;
+    }
+    .cta-section h2 { font-size: clamp(22px, 3.5vw, 32px); font-weight: 900; margin-bottom: 16px; line-height: 1.4; }
+    .cta-section p { font-size: 15px; color: #94a3b8; margin-bottom: 36px; line-height: 1.8; }
+    .cta-sub { font-size: 13px; color: #64748b; margin-top: 16px; }
+
+    /* Footer */
+    footer { background: #0f172a; color: #64748b; text-align: center; padding: 28px 20px; font-size: 13px; }
+    footer a { color: #64748b; text-decoration: none; }
+    footer a:hover { color: #94a3b8; }
+
+    /* Divider */
+    .divider { height: 1px; background: #e2e8f0; margin: 0; }
+  </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="badge">5/14セミナー参加者限定 特別価格</div>
+  <h1>
+    90分で決める、<br>
+    <span class="accent">御社のAI化の最初の一手</span>
+  </h1>
+  <p class="subtitle">
+    「AIを入れよう」という掛け声はある。でも何から始めればいいか、誰もわからない。<br>
+    そのまま時間だけが過ぎていく——それが日本の多くの中小企業の現状です。
+  </p>
+  <div class="price-box">
+    <div class="label">セミナー参加者限定価格（5/31申込まで）</div>
+    <div class="price-normal">通常 ¥35,000（税込）</div>
+    <div class="price-special">¥25,000</div>
+    <div class="price-note">オンライン90分 / 成果物2点お渡し</div>
+  </div>
+  <br>
+  <a href="mailto:shimizu_michihiro@heartandbrain.co.jp?subject=【AI活用診断 申込】5/14セミナー参加&body=お名前：%0D%0A会社名：%0D%0Aご連絡先メール：%0D%0Aご希望の実施時期（例：5月下旬・6月上旬）：%0D%0Aご相談内容（任意）：" class="cta-btn">無料相談・申し込みはこちら</a>
+  <p class="cta-note">メールで申し込み。返信まで1〜2営業日以内。</p>
+</section>
+
+<!-- Pain -->
+<section class="section">
+  <div class="inner">
+    <div class="section-label">Problem</div>
+    <h2 class="section-title">こんなお悩みはありませんか？</h2>
+    <ul class="pain-list">
+      <li>
+        <span class="pain-icon">✗</span>
+        ChatGPTを社員に使わせてみたが、何も変わらなかった
+      </li>
+      <li>
+        <span class="pain-icon">✗</span>
+        AIで業務を効率化したいが、何から手をつければいいかわからない
+      </li>
+      <li>
+        <span class="pain-icon">✗</span>
+        競合がAI活用を始めているのを見て焦っている
+      </li>
+      <li>
+        <span class="pain-icon">✗</span>
+        「AIを入れよう」という掛け声はあるが、具体的に動いていない
+      </li>
+      <li>
+        <span class="pain-icon">✗</span>
+        どのAIツールを選べばいいか、情報が多すぎて判断できない
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- What -->
+<section class="section gray">
+  <div class="inner">
+    <div class="section-label">Solution</div>
+    <h2 class="section-title">AI活用診断とは</h2>
+    <div class="what-box">
+      <p class="main">
+        <span class="accent">90分のオンラインセッション</span>で、<br>
+        御社の「AI化の最初の一手」を決めます。
+      </p>
+      <p class="sub">
+        闇雲にAIツールを試すのではなく、御社の業務の中から<br>
+        「効果が大きく・すぐに始められる」業務を1つ特定し、<br>
+        その場で実際に動かして見せます。<br><br>
+        セッション後には「明日から何をするか」が決まっている状態を目指します。
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Flow -->
+<section class="section">
+  <div class="inner">
+    <div class="section-label">Session Flow</div>
+    <h2 class="section-title">90分の流れ</h2>
+    <div class="flow-grid">
+      <div class="flow-item">
+        <span class="flow-time">0〜30分</span>
+        <div class="flow-content">
+          <h4>現状ヒアリング</h4>
+          <p>現在の主要業務・ボトルネック・困っていることをお聞きします。AIの前提知識は不要です。普段の仕事の話をしていただくだけで十分です。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <span class="flow-time">30〜75分</span>
+        <div class="flow-content">
+          <h4>AI化優先業務の選定 + ライブデモ</h4>
+          <p>ヒアリング内容をもとに「最初に着手する業務」を1つ選定し、実際にAIで動かして見せます。参加者の実データを使ってデモを行います。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <span class="flow-time">75〜90分</span>
+        <div class="flow-content">
+          <h4>ロードマップ確定・次の一歩を決める</h4>
+          <p>「セッション後、最初の30日に何をするか」を具体的なタスクリストとして整理します。担当者・ツール・スケジュールまで落とし込みます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Deliverables -->
+<section class="section gray">
+  <div class="inner">
+    <div class="section-label">Deliverables</div>
+    <h2 class="section-title">セッション後にお渡しするもの</h2>
+    <div class="deliverable-grid">
+      <div class="deliverable-card">
+        <div class="number">ITEM 01</div>
+        <h4>AI化優先マップ（A4 1枚）</h4>
+        <p>御社の業務を「今すぐ着手」「3ヶ月以内」「様子見」「判断保留」の4象限に整理。何から始めるべきかが一目でわかるマップです。</p>
+      </div>
+      <div class="deliverable-card">
+        <div class="number">ITEM 02</div>
+        <h4>最初の30日間アクションリスト</h4>
+        <p>「セッション後、明日から何をするか」を具体的なタスクリストとして作成。担当者・使用ツール・期日まで書かれています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Pricing -->
+<section class="section">
+  <div class="inner">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">料金</h2>
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>対象</th>
+          <th>料金</th>
+          <th>申込期限</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td><strong>5/14セミナー参加者</strong><br><span style="font-size:13px;color:#065f46;">または AI活用診断受講者</span></td>
+          <td class="price">¥25,000</td>
+          <td style="font-size:14px;">5月31日（日）まで</td>
+        </tr>
+        <tr>
+          <td>通常価格</td>
+          <td class="price" style="color:#475569;font-weight:400;">¥35,000</td>
+          <td style="font-size:14px;color:#94a3b8;">—</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="pricing-note">
+      ※ 全額税込。<br>
+      ※ セッション後に顧問契約・法人研修を続けて依頼いただく場合、診断費用は初月顧問料から控除します（実質無料）。<br>
+      ※ お支払いは銀行振込。セッション前日までにお支払いください。
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Fit -->
+<section class="section gray">
+  <div class="inner">
+    <div class="section-label">For Whom</div>
+    <h2 class="section-title">こんな方に向いています</h2>
+    <ul class="fit-list">
+      <li>
+        <span class="fit-check">✓</span>
+        従業員数5〜50名の中小企業・スタートアップの経営者・役員
+      </li>
+      <li>
+        <span class="fit-check">✓</span>
+        業務改善・DX推進の意思決定権を持つ担当者
+      </li>
+      <li>
+        <span class="fit-check">✓</span>
+        「まず1業務から試したい」という現実的なスタンスがある
+      </li>
+      <li>
+        <span class="fit-check">✓</span>
+        AIの知識がなく、何から始めればいいかわからない
+      </li>
+      <li>
+        <span class="fit-check">✓</span>
+        ChatGPTは試したが、業務改善につながらなかった経験がある
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="inner">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">よくある質問</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <p class="faq-q">AIの知識がなくても大丈夫ですか？</p>
+        <p class="faq-a">はい。前提知識は不要です。「何を使うか」より「どの業務から始めるか」を一緒に決めることが目的です。普段の業務の話をしていただくだけで十分です。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">実際に業務で使えるレベルになりますか？</p>
+        <p class="faq-a">セッション内でその場でデモを行い、参加者の実データを使って試します。「自分でもできる」という感覚を持ち帰っていただくことを目指しています。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">診断後のサポートはありますか？</p>
+        <p class="faq-a">セッション後1ヶ月は、進捗確認のフォローアップメールをお送りします。追加サポートが必要な場合は月次AI活用顧問（¥100,000/月〜）もご用意しています。診断費用は初月顧問料から控除するため、実質無料で顧問契約へ移行できます。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">オンライン開催ですか？対面も可能ですか？</p>
+        <p class="faq-a">基本はZoomによるオンライン開催です。首都圏の方で対面希望の場合はご相談ください（交通費実費別途）。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">複数名での参加は可能ですか？</p>
+        <p class="faq-a">はい。経営者・役員・現場担当者の複数名でのご参加も歓迎です。意思決定者と実務担当者が同席することでセッション後の実行速度が上がります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Profile -->
+<section class="section gray">
+  <div class="inner">
+    <div class="section-label">Profile</div>
+    <h2 class="section-title">担当者について</h2>
+    <div class="profile-card">
+      <div class="profile-icon">S</div>
+      <div>
+        <p class="profile-name">清水 道浩</p>
+        <p class="profile-title">AI活用支援 / AI Corporation 代表</p>
+        <p class="profile-bio">
+          企業向けAI導入支援・業務自動化・Claude Code活用研修を担当。<br>
+          現在は自社法人をAIだけで運営しながら、その実践知識をクライアントに提供。<br><br>
+          「AIを入れること」ではなく「業務が変わること」にフォーカスした支援が強み。<br>
+          提案書3時間→20分・議事録1時間→5分など、数字で証明できる事例を持っています。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="inner">
+    <h2>まず「相談してみる」から始められます</h2>
+    <p>
+      申し込み後、日程調整のご連絡をします。<br>
+      「本当に自社に合うか確認したい」という方もお気軽にどうぞ。
+    </p>
+    <a href="mailto:shimizu_michihiro@heartandbrain.co.jp?subject=【AI活用診断 申込】5/14セミナー参加&body=お名前：%0D%0A会社名：%0D%0Aご連絡先メール：%0D%0Aご希望の実施時期（例：5月下旬・6月上旬）：%0D%0Aご相談内容（任意）：" class="cta-btn">無料相談・申し込みはこちら</a>
+    <p class="cta-sub">返信まで1〜2営業日以内 / セミナー参加者限定価格は5/31まで</p>
+  </div>
+</section>
+
+<footer>
+  <p>
+    &copy; 2026 AI Corporation / 清水 道浩 &nbsp;|&nbsp;
+    <a href="mailto:shimizu_michihiro@heartandbrain.co.jp">shimizu_michihiro@heartandbrain.co.jp</a>
+    &nbsp;|&nbsp;
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+  </p>
+</footer>
+
+</body>
+</html>
